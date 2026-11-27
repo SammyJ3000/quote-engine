@@ -1,8 +1,28 @@
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Environments
 .venv/
+.env
+.env.*
+
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Local scratch and generated output
 tmp/
 outputs/
 logs/*.log
+
+# Editors and OS
+.vscode/
+.idea/
 .DS_Store
-.superpowers/

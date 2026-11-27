@@ -223,7 +223,9 @@ def test_atomic_write_leaves_no_file_on_a_fresh_run_when_serialisation_fails(tmp
         assert list(out_dir.iterdir()) == []
 
 
-def test_atomic_write_preserves_an_existing_good_file_when_serialisation_fails(tmp_path, monkeypatch):
+def test_atomic_write_preserves_an_existing_good_file_when_serialisation_fails(
+    tmp_path, monkeypatch
+):
     """Task 15 re-runs this script repeatedly on the same day while hand-entering
     prices. A failed re-run must never destroy an already-good price book."""
     out_dir = tmp_path / "out"

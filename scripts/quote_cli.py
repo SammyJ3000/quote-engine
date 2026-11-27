@@ -43,7 +43,7 @@ def format_quote(result: QuoteResult, detail: bool = False) -> str:
         f"  Materials    £{t.material_cost:,.2f}",
         f"  Plant        £{t.plant_cost:,.2f}",
         f"  Contingency  £{t.contingency:,.2f}",
-        f"  ----------------------------",
+        "  ----------------------------",
         f"  Net          £{t.net_price:,.2f}",
         f"  VAT          £{t.vat:,.2f}",
         f"  Gross        £{t.gross:,.2f}",

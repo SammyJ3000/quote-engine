@@ -123,7 +123,8 @@ def test_derived_values_compute(recipe):
 
 
 def test_when_false_drops_the_task(recipe, catalogue):
-    tasks = quantify(recipe, resolve_parameters(recipe, BASE | {"shower_type": "over-bath"}), catalogue)
+    params = resolve_parameters(recipe, BASE | {"shower_type": "over-bath"})
+    tasks = quantify(recipe, params, catalogue)
     assert "tanking" not in {t.id for t in tasks}
 
 
@@ -158,7 +159,8 @@ def test_coverage_converts_to_whole_bags(recipe, catalogue):
 
 
 def test_tier_swaps_the_sku(recipe, catalogue):
-    tasks = {t.id: t for t in quantify(recipe, resolve_parameters(recipe, BASE | {"spec_tier": "premium"}), catalogue)}
+    params = resolve_parameters(recipe, BASE | {"spec_tier": "premium"})
+    tasks = {t.id: t for t in quantify(recipe, params, catalogue)}
     assert tasks["tiling"].materials[0].sku.id == "tile-premium"
 
 
@@ -374,7 +376,8 @@ def test_tier_from_a_non_text_parameter_raises(tmp_path, catalogue):
 
 
 def test_unmapped_tier_falls_back_to_the_base_sku(recipe, catalogue):
-    tasks = {t.id: t for t in quantify(recipe, resolve_parameters(recipe, BASE | {"spec_tier": "budget"}), catalogue)}
+    params = resolve_parameters(recipe, BASE | {"spec_tier": "budget"})
+    tasks = {t.id: t for t in quantify(recipe, params, catalogue)}
     assert tasks["tiling"].materials[0].sku.id == "tile-mid"
 
 
@@ -455,7 +458,10 @@ def test_duplicate_parameter_declaration_raises(tmp_path, catalogue):
         catalogue,
         _one_task_recipe(
             """    days: 1""",
-            parameters="  - { id: area_m2, type: number }\n  - { id: area_m2, type: number, default: 3 }",
+            parameters=(
+                "  - { id: area_m2, type: number }\n"
+                "  - { id: area_m2, type: number, default: 3 }"
+            ),
         ),
         name="duplicate-param",
     )

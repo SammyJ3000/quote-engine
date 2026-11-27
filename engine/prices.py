@@ -75,7 +75,12 @@ def latest_price_book(directory: str | Path) -> PriceBook:
 
 
 class DiscountMatrix:
-    def __init__(self, default: Decimal, by_category: dict[str, Decimal], by_sku: dict[str, Decimal]):
+    def __init__(
+        self,
+        default: Decimal,
+        by_category: dict[str, Decimal],
+        by_sku: dict[str, Decimal],
+    ):
         self._default = default
         self._by_category = by_category
         self._by_sku = by_sku

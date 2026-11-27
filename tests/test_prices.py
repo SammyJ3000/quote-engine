@@ -78,7 +78,9 @@ def _write_book(directory, captured, sku_id="tile-ceramic-mid", price=1.0):
         json.dumps(
             {
                 "captured": captured,
-                "prices": {sku_id: {"list": price, "unit": "m2", "source": "x", "method": "scraped"}},
+                "prices": {
+                    sku_id: {"list": price, "unit": "m2", "source": "x", "method": "scraped"}
+                },
             }
         )
     )

@@ -1,8 +1,7 @@
 import ast
 import math
 
-from simpleeval import SimpleEval
-from simpleeval import InvalidExpression
+from simpleeval import InvalidExpression, SimpleEval
 
 from engine.errors import FormulaError
 

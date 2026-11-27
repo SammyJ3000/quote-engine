@@ -18,11 +18,13 @@ def test_golden_case(path):
 
     assert result.totals.low == Decimal(expected["low"]), (
         f"{path.stem}: low moved from {expected['low']} to {result.totals.low}. "
-        "If this change is intended, run uv run python -m scripts.update_golden and review the diff."
+        "If this change is intended, run uv run python -m scripts.update_golden "
+        "and review the diff."
     )
     assert result.totals.high == Decimal(expected["high"]), (
         f"{path.stem}: high moved from {expected['high']} to {result.totals.high}. "
-        "If this change is intended, run uv run python -m scripts.update_golden and review the diff."
+        "If this change is intended, run uv run python -m scripts.update_golden "
+        "and review the diff."
     )
     assert result.totals.labour_cost == Decimal(expected["labour_cost"]), (
         f"{path.stem}: labour_cost moved from {expected['labour_cost']} to "

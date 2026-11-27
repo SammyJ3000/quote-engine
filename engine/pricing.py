@@ -6,7 +6,9 @@ from engine.money import round_money
 from engine.prices import PriceBook
 
 
-def _cost_material(material: ResolvedMaterial, client: ClientConfig, book: PriceBook) -> MaterialLine:
+def _cost_material(
+    material: ResolvedMaterial, client: ClientConfig, book: PriceBook
+) -> MaterialLine:
     sku = material.sku
     list_price = book.list_price(sku.id)
     discount = client.discounts.for_sku(sku)

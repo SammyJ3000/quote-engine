@@ -100,7 +100,9 @@ def test_every_by_coverage_material_resolves_to_a_sku_with_coverage(recipe, cata
 # --- The recipe must not merely load; it must quantify ---------------------
 
 _ENUMS = {p.id: p.values for p in _RECIPE.parameters if p.type == "enum"}
-_ENUM_COMBOS = [dict(zip(_ENUMS, values)) for values in itertools.product(*_ENUMS.values())]
+_ENUM_COMBOS = [
+    dict(zip(_ENUMS, values, strict=True)) for values in itertools.product(*_ENUMS.values())
+]
 # The declared bounds, not a comfortable middle: 1.2 and 6.0 are what the
 # dropdowns allow. None for openings means "omit it", exercising the default.
 _ROOM_SIZES = ((1.2, 1.2), (6.0, 6.0))
