@@ -1,0 +1,195 @@
+id: bathroom-refit
+label: Bathroom refit
+
+parameters:
+  - { id: length_m, type: number, min: 1.2, max: 6.0 }
+  - { id: width_m, type: number, min: 1.2, max: 6.0 }
+  # Bounded like every other number: an LLM or a typo turning 2.4 into 24 must
+  # be an error, not a 10x quote.
+  - { id: height_m, type: number, min: 2.0, max: 3.5, default: 2.4 }
+  # Door (~1.6 m2) plus a small window (~0.6 m2). Deducted from gross wall area.
+  - { id: openings_m2, type: number, min: 0, max: 10, default: 2.2 }
+  - { id: spec_tier, type: enum, values: [budget, mid, premium] }
+  - { id: shower_type, type: enum, values: [over-bath, walk-in, enclosure] }
+  - { id: tiling_extent, type: enum, values: [floor-only, half-height, full-height] }
+  - { id: layout_change, type: enum, values: [none, minor, full-move] }
+  - { id: floor_type, type: enum, values: [tile, lvt, vinyl] }
+
+constants:
+  tiling_factor:   { floor-only: 0.0, half-height: 0.5, full-height: 1.0 }
+  shower_area:     { over-bath: 0.0, walk-in: 4.5, enclosure: 3.5 }
+  first_fix_days:  { none: 1.0, minor: 1.5, full-move: 2.5 }
+  elec_first_days: { none: 0.5, minor: 0.75, full-move: 1.25 }
+  suite_fit_days:  { over-bath: 1.0, walk-in: 1.5, enclosure: 1.25 }
+
+derived:
+  floor_area_m2: length_m * width_m
+  ceiling_area_m2: length_m * width_m
+  wall_area_m2: "max(0, 2 * (length_m + width_m) * height_m - openings_m2)"
+  tiled_area_m2: wall_area_m2 * tiling_factor[tiling_extent]
+  shower_area_m2: shower_area[shower_type]
+
+tasks:
+  - id: strip_out
+    label: Strip out and muck away
+    trade: labourer
+    days: 0.5 + floor_area_m2 * 0.10
+    materials:
+      - { sku: skip-6yd, qty: 1 }
+
+  - id: first_fix_plumbing
+    label: First fix plumbing
+    trade: plumber
+    days: first_fix_days[layout_change]
+    materials:
+      - { sku: pipework-consumables, qty: 1 }
+      - { sku: waste-kit, qty: 1 }
+
+  - id: first_fix_electrical
+    label: First fix electrical
+    trade: electrician
+    days: elec_first_days[layout_change]
+    materials:
+      - { sku: cable-1_5mm-50m, qty: 1 }
+      - { sku: extractor-fan, qty: 1 }
+      - { sku: downlight, qty: "max(3, ceil(floor_area_m2 / 1.5))" }
+      - { sku: shaver-socket, qty: 1 }
+
+  - id: boarding
+    label: Boarding and stud alterations
+    trade: joiner
+    days: 0.5 + wall_area_m2 * 0.025
+    materials:
+      - { sku: moisture-board-12_5, qty: wall_area_m2, waste: 0.10, by_coverage: true }
+      - { sku: timber-cls-38x63, qty: ceil(wall_area_m2 / 3) }
+      - { sku: fixings-sundries, qty: 1 }
+
+  - id: tanking
+    label: Wet area tanking
+    trade: tiler
+    when: shower_type != 'over-bath'
+    days: shower_area_m2 * 0.15
+    materials:
+      - { sku: tanking-kit, qty: shower_area_m2, by_coverage: true }
+
+  - id: floor_prep
+    label: Floor preparation
+    trade: joiner
+    days: 0.25 + floor_area_m2 * 0.08
+    materials:
+      - { sku: ply-18mm, qty: floor_area_m2, waste: 0.10, by_coverage: true }
+      - { sku: levelling-compound-20kg, qty: floor_area_m2, by_coverage: true }
+
+  - id: wall_tiling
+    label: Wall tiling
+    trade: tiler
+    when: tiling_extent != 'floor-only'
+    days: 0.25 + tiled_area_m2 / 8
+    materials:
+      - { sku: tile-ceramic-mid, qty: tiled_area_m2, waste: 0.10, tier: spec_tier }
+      - { sku: adhesive-flexible-20kg, qty: tiled_area_m2, by_coverage: true }
+      - { sku: grout-5kg, qty: tiled_area_m2, by_coverage: true }
+
+  - id: floor_tiling
+    label: Floor tiling
+    trade: tiler
+    when: floor_type == 'tile'
+    days: floor_area_m2 / 5
+    materials:
+      - { sku: floor-tile-mid, qty: floor_area_m2, waste: 0.12 }
+      - { sku: adhesive-flexible-20kg, qty: floor_area_m2, by_coverage: true }
+      - { sku: grout-5kg, qty: floor_area_m2, by_coverage: true }
+
+  - id: floor_lvt
+    label: LVT flooring
+    trade: floor-layer
+    when: floor_type == 'lvt'
+    days: 0.5 + floor_area_m2 / 8
+    materials:
+      - { sku: lvt-mid, qty: floor_area_m2, waste: 0.10 }
+
+  - id: floor_vinyl
+    label: Vinyl flooring
+    trade: floor-layer
+    when: floor_type == 'vinyl'
+    days: 0.5
+    materials:
+      - { sku: vinyl-budget, qty: floor_area_m2, waste: 0.15 }
+
+  - id: second_fix_plumbing
+    label: Sanitaryware install and second fix plumbing
+    trade: plumber
+    days: suite_fit_days[shower_type]
+    materials:
+      - { sku: suite-mid, qty: 1, tier: spec_tier }
+      - { sku: shower-valve-mid, qty: 1, tier: spec_tier }
+      - { sku: towel-rail, qty: 1 }
+
+  - id: shower_enclosure_fit
+    label: Shower enclosure and tray
+    trade: plumber
+    when: shower_type == 'enclosure'
+    days: 0.5
+    materials:
+      - { sku: shower-enclosure, qty: 1 }
+      - { sku: shower-tray, qty: 1 }
+
+  - id: wetroom_kit_fit
+    label: Wet room former, drain and glass panel
+    trade: plumber
+    when: shower_type == 'walk-in'
+    days: 0.75
+    materials:
+      - { sku: wetroom-former, qty: 1 }
+      - { sku: linear-drain, qty: 1 }
+      - { sku: shower-glass-panel, qty: 1 }
+
+  - id: wetroom_former_tiling
+    label: Tiling into the former and drain
+    trade: tiler
+    when: shower_type == 'walk-in'
+    days: 0.5
+    # A former has to be tiled into whatever the rest of the floor is, so this
+    # task carries its own tile rather than leaning on floor_tiling — which does
+    # not run at all on an LVT or vinyl floor. 1.75 m2 is a 1200x900 former plus
+    # its surround. Waste is high because every cut follows the fall to the drain.
+    materials:
+      - { sku: floor-tile-mid, qty: 1.75, waste: 0.15 }
+      - { sku: adhesive-flexible-20kg, qty: 1.75, by_coverage: true }
+      - { sku: grout-5kg, qty: 1.75, by_coverage: true }
+
+  - id: bath_screen_fit
+    label: Bath screen
+    trade: plumber
+    when: shower_type == 'over-bath'
+    days: 0.25
+    materials:
+      - { sku: bath-screen, qty: 1 }
+
+  - id: second_fix_electrical
+    label: Second fix electrical and test
+    trade: electrician
+    days: 0.5
+
+  - id: plastering
+    label: Plastering and making good
+    trade: plasterer
+    # 0.035 day/m2 = 28.6 m2/day skimming, plus half a day fixed for
+    # making good, mixing and setting up. Researched 2026-08-20.
+    days: 0.5 + (ceiling_area_m2 + wall_area_m2 - tiled_area_m2) * 0.035
+    materials:
+      - { sku: plaster-skim-25kg, qty: ceiling_area_m2 + wall_area_m2 - tiled_area_m2, by_coverage: true }
+
+  - id: decorating
+    label: Decorating
+    trade: decorator
+    days: 0.5 + (ceiling_area_m2 + wall_area_m2 - tiled_area_m2) * 0.05
+    materials:
+      - { sku: paint-bathroom-2_5l, qty: ceiling_area_m2 + wall_area_m2 - tiled_area_m2, by_coverage: true }
+
+  - id: final_fix
+    label: Silicone, final fix and clean
+    trade: plumber
+    days: 0.5
+    materials:
+      - { sku: silicone-tube, qty: 3 }

@@ -1,0 +1,24 @@
+{
+  "recipe": "bathroom-refit",
+  "client": "demo-nw",
+  "description": "Small budget bathroom, shower over bath, half-height tiling, vinyl floor",
+  "parameters": {
+    "length_m": 1.7,
+    "width_m": 1.4,
+    "height_m": 2.4,
+    "openings_m2": 1.6,
+    "spec_tier": "budget",
+    "shower_type": "over-bath",
+    "tiling_extent": "half-height",
+    "layout_change": "none",
+    "floor_type": "vinyl"
+  },
+  "expected": {
+    "low": "4850",
+    "high": "5700",
+    "labour_cost": "2192.98",
+    "material_cost": "1002.30",
+    "plant_cost": "240.00",
+    "gross": "5280.71"
+  }
+}

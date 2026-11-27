@@ -1,0 +1,65 @@
+# Plant and disposal
+- { id: skip-6yd, name: "Skip, 6 yard, delivered and collected", unit: each, category: plant, discrete: true }
+
+# Sanitaryware
+- id: suite-mid
+  name: "Bathroom suite (bath, basin, WC), mid range"
+  unit: each
+  category: sanitaryware
+  discrete: true
+  tiers: { budget: suite-budget, premium: suite-premium }
+- { id: suite-budget, name: "Bathroom suite, budget", unit: each, category: sanitaryware, discrete: true }
+- { id: suite-premium, name: "Bathroom suite, premium", unit: each, category: sanitaryware, discrete: true }
+- id: shower-valve-mid
+  name: "Thermostatic shower valve, mid range"
+  unit: each
+  category: sanitaryware
+  discrete: true
+  tiers: { budget: shower-valve-budget, premium: shower-valve-premium }
+- { id: shower-valve-budget, name: "Shower valve, budget", unit: each, category: sanitaryware, discrete: true }
+- { id: shower-valve-premium, name: "Shower valve, premium", unit: each, category: sanitaryware, discrete: true }
+- { id: shower-enclosure, name: "Shower enclosure and door", unit: each, category: sanitaryware, discrete: true }
+- { id: shower-tray, name: "Shower tray", unit: each, category: sanitaryware, discrete: true }
+- { id: towel-rail, name: "Heated towel rail", unit: each, category: sanitaryware, discrete: true }
+- { id: wetroom-former, name: "Wet room tray former, tileable, level access", unit: each, category: sanitaryware, discrete: true }
+- { id: linear-drain, name: "Linear wet room drain and tileable trap cover", unit: each, category: sanitaryware, discrete: true }
+- { id: shower-glass-panel, name: "Walk-in shower glass panel and bracing arm", unit: each, category: sanitaryware, discrete: true }
+- { id: bath-screen, name: "Bath shower screen", unit: each, category: sanitaryware, discrete: true }
+
+# Plumbing
+- { id: pipework-consumables, name: "Pipework, fittings and consumables", unit: each, category: plumbing, discrete: true }
+- { id: waste-kit, name: "Waste and trap kit", unit: each, category: plumbing, discrete: true }
+
+# Wall and floor finishes
+- id: tile-ceramic-mid
+  name: "Ceramic wall tile, mid range"
+  unit: m2
+  category: finishes
+  tiers: { budget: tile-ceramic-budget, premium: tile-porcelain-premium }
+- { id: tile-ceramic-budget, name: "Ceramic wall tile, budget", unit: m2, category: finishes }
+- { id: tile-porcelain-premium, name: "Porcelain wall tile, premium", unit: m2, category: finishes }
+- { id: floor-tile-mid, name: "Porcelain floor tile", unit: m2, category: finishes }
+- { id: lvt-mid, name: "Luxury vinyl tile flooring", unit: m2, category: finishes }
+- { id: vinyl-budget, name: "Cushioned vinyl flooring", unit: m2, category: finishes }
+- { id: adhesive-flexible-20kg, name: "Flexible tile adhesive 20kg", unit: bag, category: finishes, discrete: true, coverage: { unit: m2, per_unit: 4.5 } }
+- { id: grout-5kg, name: "Wall and floor grout 5kg", unit: bag, category: finishes, discrete: true, coverage: { unit: m2, per_unit: 8.0 } }
+# Coverage matches the priced product: the Mapei kit states "covers up to 4m2".
+- { id: tanking-kit, name: "Wet area tanking kit", unit: each, category: finishes, discrete: true, coverage: { unit: m2, per_unit: 4.0 } }
+- { id: silicone-tube, name: "Sanitary silicone", unit: each, category: sundries, discrete: true }
+- { id: paint-bathroom-2_5l, name: "Bathroom emulsion 2.5L", unit: tin, category: finishes, discrete: true, coverage: { unit: m2, per_unit: 12.0 } }
+
+# Boarding, plaster, timber
+- { id: moisture-board-12_5, name: "Moisture resistant plasterboard 12.5mm", unit: sheet, category: heavy-side, discrete: true, coverage: { unit: m2, per_unit: 2.88 } }
+- { id: plaster-skim-25kg, name: "Multi finish plaster 25kg", unit: bag, category: heavy-side, discrete: true, coverage: { unit: m2, per_unit: 10.0 } }
+- { id: ply-18mm, name: "Plywood 18mm 2400x1200", unit: sheet, category: timber, discrete: true, coverage: { unit: m2, per_unit: 2.88 } }
+- { id: levelling-compound-20kg, name: "Floor levelling compound 20kg", unit: bag, category: heavy-side, discrete: true, coverage: { unit: m2, per_unit: 4.0 } }
+- { id: timber-cls-38x63, name: "CLS studwork timber 38x63 2.4m", unit: length, category: timber, discrete: true }
+
+# Electrical
+- { id: extractor-fan, name: "Inline extractor fan", unit: each, category: electrical, discrete: true }
+- { id: downlight, name: "IP65 LED downlight", unit: each, category: electrical, discrete: true }
+- { id: shaver-socket, name: "Shaver socket", unit: each, category: electrical, discrete: true }
+- { id: cable-1_5mm-50m, name: "Twin and earth cable 1.5mm 50m", unit: reel, category: electrical, discrete: true }
+
+# Sundries
+- { id: fixings-sundries, name: "Screws, fixings and sundries", unit: each, category: sundries, discrete: true }

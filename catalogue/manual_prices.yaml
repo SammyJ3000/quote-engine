@@ -1,0 +1,102 @@
+# Hand-entered list prices for every catalogue SKU.
+#
+# All figures are GBP, EX VAT, per the SKU's own unit. Published retail prices
+# in the UK are almost always shown inc VAT; where that was the case the
+# displayed figure has been divided by 1.2 and both numbers are recorded in
+# docs/rates-research.md.
+#
+# These are LIST prices. The client discount matrix in
+# clients/demo-nw/discounts.yaml takes the trade discount off them to reach the
+# builder's buying price — do not pre-discount anything here.
+#
+# Researched 2026-08-20. Source URL is the comment above each line.
+# Lines marked ESTIMATED have no single published price (composite bundles);
+# the log explains how each was built.
+
+# --- Plant -----------------------------------------------------------------
+# https://www.mwskips.co.uk/6-yard-skip-hire/  (Greater Manchester, £240 + VAT)
+skip-6yd: 240.00
+
+# --- Sanitaryware ----------------------------------------------------------
+# https://www.victorianplumbing.co.uk/cove-complete-bathroom-suite  (£399.95 inc)
+suite-budget: 333.29
+# https://www.victorianplumbing.co.uk/keswick-white-bathroom-suite  (£799.95 inc)
+suite-mid: 666.63
+# https://www.victorianplumbing.co.uk/venice-btw-free-standing-bath-suite  (£999.95 inc)
+suite-premium: 833.29
+# https://www.screwfix.com/p/triton-pirlo-exposed-single-outlet-thermostatic-chrome-bar-mixer-shower-valve/551gf  (£84.99 inc)
+shower-valve-budget: 70.83
+# ESTIMATED — midpoint of the two sourced valves above and below (£217.49 inc)
+shower-valve-mid: 181.24
+# https://www.screwfix.com/p/triton-elina-concealed-mixer-shower-valve-fixed-chrome/522fj  (£349.99 inc)
+shower-valve-premium: 291.66
+# https://www.screwfix.com/p/triton-fast-fix-framed-quadrant-2-door-shower-enclosure-chrome-900mm-x-900mm-x-1900mm/591kt  (£309.99 inc)
+shower-enclosure: 258.33
+# https://www.screwfix.com/p/mira-flight-low-square-shower-tray-white-900mm-x-900mm-x-40mm/9139x  (£169.99 inc)
+shower-tray: 141.66
+# https://www.screwfix.com/p/flomasta-1200mm-x-500mm-1228btu-chrome-flat-towel-radiator/378tf  (£56.69 inc)
+towel-rail: 47.24
+# https://www.wickes.co.uk/Abacus-Linear-30mm-Wetroom-Shower-Tray-with-600mm-End-Drain-Level-Access---1200-x-900mm/p/257889  (list £361 inc)
+wetroom-former: 300.83
+# https://www.wickes.co.uk/Linear-Tileable-Trap-Cover---600mm/p/257901  (list £123 inc)
+linear-drain: 102.50
+# https://www.wickes.co.uk/Hadleigh-8mm-Brushed-Nickel-900mm-Frameless-Wetroom-Screen-with-Ceiling-Arm+350mm-Pivot-Panel/p/257873  (list £554 inc)
+shower-glass-panel: 461.66
+# https://www.wickes.co.uk/Wickes-6mm-Fixed-Half-Framed-Bath-Screen---1400-x-900mm/p/229367  (list £172 inc)
+bath-screen: 143.33
+
+# --- Plumbing --------------------------------------------------------------
+# ESTIMATED — pipe, fittings, isolators, clips, flux and solder for one bathroom
+pipework-consumables: 200.00
+# ESTIMATED — bath pop-up waste, basin waste, bottle trap and shower waste
+waste-kit: 58.00
+
+# --- Wall and floor finishes ----------------------------------------------
+# https://www.wickes.co.uk/Wickes-White-Gloss-Ceramic-Wall-Tile---400-x-250mm/p/273047  (£12/m2 inc)
+tile-ceramic-budget: 10.00
+# https://www.wickes.co.uk/Wickes-Azzara-Grey-Ceramic-Wall+Floor-Tile---600-x-300mm/p/147279  (£28/m2 inc)
+tile-ceramic-mid: 23.33
+# https://www.wickes.co.uk/Wickes-Boutique-Palmas-Gloss-Ceramic-Wall-Tile---600-x-300mm/p/191529  (£40/m2 inc)
+tile-porcelain-premium: 33.33
+# https://www.wickes.co.uk/Wickes-Calacatta-Charm-Matt-Porcelain-Wall+Floor-Tile---600-x-300mm/p/277961  (£19/m2 inc)
+floor-tile-mid: 15.83
+# https://www.wickes.co.uk/Novocore-Grey-Oak-Luxury-Vinyl-Flooring---1-98m2/p/236755  (£25/m2 inc)
+lvt-mid: 20.83
+# https://www.diy.com/departments/precut-light-grey-wide-natural-oak-plank-effect-sheet-vinyl-6m-/5059340920122_BQ.prd  (£66 per 6m2 = £11/m2 inc)
+vinyl-budget: 9.17
+# https://www.screwfix.com/p/mapei-rapid-set-adhesive-grey-20kg/29634  (£19.99 inc)
+adhesive-flexible-20kg: 16.66
+# https://www.screwfix.com/p/mapei-ultracolor-plus-wall-floor-grout-white-5kg/71681  (£21.49 inc)
+grout-5kg: 17.91
+# https://www.screwfix.com/p/mapei-shower-waterproofing-kit/78484  (£49.99 inc, covers up to 4m2)
+tanking-kit: 41.66
+# https://www.screwfix.com/p/dulux-easycare-soft-sheen-pure-brilliant-white-emulsion-bathroom-paint-2-5ltr/42729  (£24.99 inc)
+paint-bathroom-2_5l: 20.83
+
+# --- Boarding, plaster, timber --------------------------------------------
+# https://www.wickes.co.uk/Knauf-Tapered-Edge-Moisture-Panel---12-5-x-1200-x-2400mm/p/190540  (£26.50 inc)
+moisture-board-12_5: 22.08
+# https://www.wickes.co.uk/British-Gypsum-Thistle-Multi-Finish-Plaster---25kg/p/220056  (£11.25 inc)
+plaster-skim-25kg: 9.38
+# https://www.wickes.co.uk/Non-Structural-Hardwood-Plywood-Sheet---18-x-1220-x-2440mm/p/110037  (£35.80 inc)
+ply-18mm: 29.83
+# https://www.screwfix.com/p/no-nonsense-l12-floor-levelling-compound-20kg/453hu  (£16.99 inc)
+levelling-compound-20kg: 14.16
+# https://www.wickes.co.uk/Wickes-Studwork-CLS-Timber---38-x-63-x-2400mm/p/107177  (£3.85 inc)
+timber-cls-38x63: 3.21
+
+# --- Electrical ------------------------------------------------------------
+# https://www.screwfix.com/p/manrose-mf100t-100mm-inline-extractor-fan-with-timer-240v/719gy  (£109.99 inc)
+extractor-fan: 91.66
+# https://www.screwfix.com/p/4lite-fixed-fire-rated-led-cct-downlight-matt-white-7w-640-730lm/516gg  (list £8.59 inc)
+downlight: 7.16
+# https://www.screwfix.com/p/lap-2-gang-dual-voltage-shaver-socket-115-230v-white/63953  (£14.25 inc)
+shaver-socket: 11.88
+# https://www.screwfix.com/p/prysmian-6242y-grey-1-5mm-twin-earth-cable-50m-drum/51381  (£35.99 inc)
+cable-1_5mm-50m: 29.99
+
+# --- Sundries --------------------------------------------------------------
+# https://www.screwfix.com/p/no-nonsense-820-sanitary-silicone-white-310ml/47187  (£5.89 inc)
+silicone-tube: 4.91
+# ESTIMATED — screws, plugs, board adhesive, tape, blades, dust sheets
+fixings-sundries: 42.00

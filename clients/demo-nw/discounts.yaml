@@ -1,0 +1,11 @@
+default: 0.15
+by_category:
+  timber: 0.38
+  heavy-side: 0.32
+  finishes: 0.20
+  sanitaryware: 0.35
+  electrical: 0.25
+  plumbing: 0.30
+  sundries: 0.15
+  plant: 0.0
+by_sku: {}

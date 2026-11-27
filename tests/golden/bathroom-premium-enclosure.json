@@ -1,0 +1,24 @@
+{
+  "recipe": "bathroom-refit",
+  "client": "demo-nw",
+  "description": "Large premium bathroom with separate enclosure and full layout move",
+  "parameters": {
+    "length_m": 3.2,
+    "width_m": 2.6,
+    "height_m": 2.7,
+    "openings_m2": 2.8,
+    "spec_tier": "premium",
+    "shower_type": "enclosure",
+    "tiling_extent": "full-height",
+    "layout_change": "full-move",
+    "floor_type": "tile"
+  },
+  "expected": {
+    "low": "10400",
+    "high": "12250",
+    "labour_cost": "4240.08",
+    "material_cost": "2887.63",
+    "plant_cost": "240.00",
+    "gross": "11325.65"
+  }
+}

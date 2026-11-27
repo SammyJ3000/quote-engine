@@ -1,0 +1,229 @@
+{
+  "captured": "2026-08-21",
+  "source_run": "harvest_prices.py v1",
+  "prices": {
+    "skip-6yd": {
+      "list": 240.0,
+      "unit": "each",
+      "source": "manual",
+      "method": "hand"
+    },
+    "suite-budget": {
+      "list": 333.29,
+      "unit": "each",
+      "source": "manual",
+      "method": "hand"
+    },
+    "suite-mid": {
+      "list": 666.63,
+      "unit": "each",
+      "source": "manual",
+      "method": "hand"
+    },
+    "suite-premium": {
+      "list": 833.29,
+      "unit": "each",
+      "source": "manual",
+      "method": "hand"
+    },
+    "shower-valve-budget": {
+      "list": 70.83,
+      "unit": "each",
+      "source": "manual",
+      "method": "hand"
+    },
+    "shower-valve-mid": {
+      "list": 181.24,
+      "unit": "each",
+      "source": "manual",
+      "method": "hand"
+    },
+    "shower-valve-premium": {
+      "list": 291.66,
+      "unit": "each",
+      "source": "manual",
+      "method": "hand"
+    },
+    "shower-enclosure": {
+      "list": 258.33,
+      "unit": "each",
+      "source": "manual",
+      "method": "hand"
+    },
+    "shower-tray": {
+      "list": 141.66,
+      "unit": "each",
+      "source": "manual",
+      "method": "hand"
+    },
+    "towel-rail": {
+      "list": 47.24,
+      "unit": "each",
+      "source": "manual",
+      "method": "hand"
+    },
+    "wetroom-former": {
+      "list": 300.83,
+      "unit": "each",
+      "source": "manual",
+      "method": "hand"
+    },
+    "linear-drain": {
+      "list": 102.5,
+      "unit": "each",
+      "source": "manual",
+      "method": "hand"
+    },
+    "shower-glass-panel": {
+      "list": 461.66,
+      "unit": "each",
+      "source": "manual",
+      "method": "hand"
+    },
+    "bath-screen": {
+      "list": 143.33,
+      "unit": "each",
+      "source": "manual",
+      "method": "hand"
+    },
+    "pipework-consumables": {
+      "list": 200.0,
+      "unit": "each",
+      "source": "manual",
+      "method": "hand"
+    },
+    "waste-kit": {
+      "list": 58.0,
+      "unit": "each",
+      "source": "manual",
+      "method": "hand"
+    },
+    "tile-ceramic-budget": {
+      "list": 10.0,
+      "unit": "m2",
+      "source": "manual",
+      "method": "hand"
+    },
+    "tile-ceramic-mid": {
+      "list": 23.33,
+      "unit": "m2",
+      "source": "manual",
+      "method": "hand"
+    },
+    "tile-porcelain-premium": {
+      "list": 33.33,
+      "unit": "m2",
+      "source": "manual",
+      "method": "hand"
+    },
+    "floor-tile-mid": {
+      "list": 15.83,
+      "unit": "m2",
+      "source": "manual",
+      "method": "hand"
+    },
+    "lvt-mid": {
+      "list": 20.83,
+      "unit": "m2",
+      "source": "manual",
+      "method": "hand"
+    },
+    "vinyl-budget": {
+      "list": 9.17,
+      "unit": "m2",
+      "source": "manual",
+      "method": "hand"
+    },
+    "adhesive-flexible-20kg": {
+      "list": 16.66,
+      "unit": "bag",
+      "source": "manual",
+      "method": "hand"
+    },
+    "grout-5kg": {
+      "list": 17.91,
+      "unit": "bag",
+      "source": "manual",
+      "method": "hand"
+    },
+    "tanking-kit": {
+      "list": 41.66,
+      "unit": "each",
+      "source": "manual",
+      "method": "hand"
+    },
+    "paint-bathroom-2_5l": {
+      "list": 20.83,
+      "unit": "tin",
+      "source": "manual",
+      "method": "hand"
+    },
+    "moisture-board-12_5": {
+      "list": 22.08,
+      "unit": "sheet",
+      "source": "manual",
+      "method": "hand"
+    },
+    "plaster-skim-25kg": {
+      "list": 9.38,
+      "unit": "bag",
+      "source": "manual",
+      "method": "hand"
+    },
+    "ply-18mm": {
+      "list": 29.83,
+      "unit": "sheet",
+      "source": "manual",
+      "method": "hand"
+    },
+    "levelling-compound-20kg": {
+      "list": 14.16,
+      "unit": "bag",
+      "source": "manual",
+      "method": "hand"
+    },
+    "timber-cls-38x63": {
+      "list": 3.21,
+      "unit": "length",
+      "source": "manual",
+      "method": "hand"
+    },
+    "extractor-fan": {
+      "list": 91.66,
+      "unit": "each",
+      "source": "manual",
+      "method": "hand"
+    },
+    "downlight": {
+      "list": 7.16,
+      "unit": "each",
+      "source": "manual",
+      "method": "hand"
+    },
+    "shaver-socket": {
+      "list": 11.88,
+      "unit": "each",
+      "source": "manual",
+      "method": "hand"
+    },
+    "cable-1_5mm-50m": {
+      "list": 29.99,
+      "unit": "reel",
+      "source": "manual",
+      "method": "hand"
+    },
+    "silicone-tube": {
+      "list": 4.91,
+      "unit": "each",
+      "source": "manual",
+      "method": "hand"
+    },
+    "fixings-sundries": {
+      "list": 42.0,
+      "unit": "each",
+      "source": "manual",
+      "method": "hand"
+    }
+  },
+  "unpriced": []
+}

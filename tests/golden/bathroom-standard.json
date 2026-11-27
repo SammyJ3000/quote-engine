@@ -1,0 +1,24 @@
+{
+  "recipe": "bathroom-refit",
+  "client": "demo-nw",
+  "description": "Standard 2.4 x 1.8m mid-spec bathroom, walk-in shower, tiled floor to ceiling",
+  "parameters": {
+    "length_m": 2.4,
+    "width_m": 1.8,
+    "height_m": 2.4,
+    "openings_m2": 2.2,
+    "spec_tier": "mid",
+    "shower_type": "walk-in",
+    "tiling_extent": "full-height",
+    "layout_change": "none",
+    "floor_type": "tile"
+  },
+  "expected": {
+    "low": "8100",
+    "high": "9550",
+    "labour_cost": "3146.07",
+    "material_cost": "2359.11",
+    "plant_cost": "240.00",
+    "gross": "8831.50"
+  }
+}

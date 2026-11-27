@@ -1,0 +1,11 @@
+# Northwest England day rates, labour only, ex VAT, 8-hour day.
+# Researched 2026-08-20 — see docs/rates-research.md for every
+# source, the range it gave and the midpoint taken.
+plumber: 285
+tiler: 220
+electrician: 295
+plasterer: 230
+joiner: 240
+decorator: 200
+floor-layer: 195
+labourer: 130

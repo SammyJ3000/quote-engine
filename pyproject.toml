@@ -1,0 +1,12 @@
+[project]
+name = "quote-engine"
+version = "0.1.0"
+description = "Deterministic bathroom refit quote engine for small UK building firms"
+requires-python = ">=3.12"
+dependencies = ["pyyaml>=6.0", "simpleeval>=1.0"]
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

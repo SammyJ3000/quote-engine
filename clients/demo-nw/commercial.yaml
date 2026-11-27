@@ -1,0 +1,5 @@
+overhead_margin: 0.22
+contingency: 0.05
+quote_band: 0.08
+vat_rate: 0.20
+display_rounding: 50
