@@ -1,9 +1,9 @@
-"""Pre-demo check that one client's setup can actually quote one recipe.
+"""Pre-quote check that one client's setup can actually quote one recipe.
 
 load_recipe checks SKU references against the catalogue, but nothing checks a
 client's trades against labour.yaml or its SKUs against the price book until a
-particular dropdown combination fires. A skin created the night before a visit
-gets none of that. This module checks the whole cross-product up front.
+particular dropdown combination fires. A newly created client config gets none
+of that. This module checks the whole cross-product up front.
 """
 
 from engine.catalogue import Catalogue
